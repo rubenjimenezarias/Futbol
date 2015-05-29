@@ -16,8 +16,8 @@ public class Equipo
     private double valoracionMedia;
     private String nombres[] = {"Ramon", "Pedro", "Juan", "Mario", "Marcos", "Miguel", "Luis", "Carlos", "Jose Ramon", "Federico", "Alberto", "Roberto", "Ruben", "Guillermo", "Hector","Mario", "Felipe", "Manuel", "Tomas", "Agustin", "Jose Manuel", "Juan Jesus","Pepe", "Ricardo", "Fernando", "Antonio", "Jose Alberto", "Jose Luis", "David","Emilio", "Cesar", "German", "Raul", "Pablo"};
     // creamos la array de la alineacion titular
-        ArrayList<Jugador> alineacion = new ArrayList();
-        
+    ArrayList<Jugador> alineacion = new ArrayList();
+
     /**
      * Constructor for objects of class Equipo
      */
@@ -44,7 +44,7 @@ public class Equipo
         dorsal++;
         plantilla.add(jugador);
     }
-    
+
     /**
      * 
      */
@@ -59,7 +59,7 @@ public class Equipo
         for(int i = 0; i< nombres.length; i++){
             lista.add(nombres[i]);
         }
-        
+
         while (cont < numJugadores){
             numeroAleatorio = aleatorio.nextInt(lista.size());
             if(cont == 0){
@@ -76,7 +76,7 @@ public class Equipo
             cont++;
         }
     }
-    
+
     /**
      * 
      */
@@ -84,7 +84,7 @@ public class Equipo
         //Creamos una copia de la plantilla para ir elminando jugadores
         ArrayList<Jugador> lista = new ArrayList();
         lista = (ArrayList)plantilla.clone();
-        
+
         //Metemos al portero que es fijo
         alineacion.add(lista.get(0));
         lista.remove(0);
@@ -92,15 +92,15 @@ public class Equipo
         boolean encontrado = false;
         int cont = 0;
         while (cont < lista.size() && !encontrado){
-                if(lista.get(cont) instanceof Capitan){
-                    alineacion.add(lista.get(cont));
-                    lista.remove(cont);
-                }
-                cont++;
+            if(lista.get(cont) instanceof Capitan){
+                alineacion.add(lista.get(cont));
+                lista.remove(cont);
             }
-        
+            cont++;
+        }
+
         //Metemos a los mejores jugadores.
-        
+
         cont = 0;
         int posicion = 0;
         while(cont < 9){
@@ -118,13 +118,13 @@ public class Equipo
             lista.remove(posicion);
             cont++;
         }
-        
+
         // Metemos a los suplentes
         for (Jugador jugador : lista){
             alineacion.add(jugador);
         }
     }
-    
+
     /**
      * 
      */
@@ -161,5 +161,25 @@ public class Equipo
             cont++;
         }
         System.out.println("***********************************" + "\n");
+    }
+
+    public void entrenar(){
+        Random rnd = new Random();
+        for(int i = 0; i < plantilla.size(); i++){
+            int porcent = rnd.nextInt(101);
+            plantilla.get(i).addForma(porcent);
+            plantilla.get(i).addValoracion(porcent);
+            if(plantilla.get(i) instanceof Portero){
+                ((Portero)plantilla.get(i)).addAgilidad(porcent);
+            }
+            else if(plantilla.get(i) instanceof JugadorCampo){
+                ((JugadorCampo)plantilla.get(i)).addPase(porcent);
+                ((JugadorCampo)plantilla.get(i)).addRegate(porcent);
+                ((JugadorCampo)plantilla.get(i)).addRemate(porcent);
+            }
+            else{
+                ((Capitan)plantilla.get(i)).addLiderazgo(porcent);
+            }
+        }
     }
 }

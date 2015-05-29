@@ -82,4 +82,15 @@ public abstract class Jugador
         
         return String.format("Dorsal %2d %-12s (%2d anos) ", dorsal, nombre,edad);
     }
+    
+    public void addForma(int porcent){
+        if(forma * (porcent / 100) < 10){
+            forma = forma * (porcent / 100);
+        }
+    }
+    public void addValoracion(int porcent){
+        if(valoracion * (porcent / 100) < 10){
+            valoracion = valoracion * (porcent / 100);
+        }
+    }
 }

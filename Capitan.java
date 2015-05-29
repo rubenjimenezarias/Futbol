@@ -43,4 +43,11 @@ public class Capitan extends JugadorCampo
     public String toString(){
         return super.toString() + String.format(" Liderazgo %2d ",liderazgo);
     }
+    public void addLiderazgo(int porcent){
+        
+        if(liderazgo * (porcent / 100) < 5){
+            liderazgo = liderazgo * (porcent / 100);
+        }
+
+    }
 }

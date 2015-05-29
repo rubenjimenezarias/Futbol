@@ -14,4 +14,6 @@ comment3.text=\r\n\ Valoracion\ del\ portero\r\n
 comment4.params=
 comment4.target=java.lang.String\ toString()
 comment4.text=\r\n\ \r\n
-numComments=5
+comment5.params=porcent
+comment5.target=void\ addAgilidad(int)
+numComments=6

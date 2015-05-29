@@ -61,4 +61,21 @@ public class JugadorCampo extends Jugador
     public String toString(){
         return super.toString() + String.format("Pase %2d Regate %2d Remate %2d Valoracion %.0f", pase,regate,remate,valoracion()) ;
     }
+    
+    public void addPase(int porcent){
+        if(pase * (porcent / 100) < 10){
+            pase = pase * (porcent / 100);
+        }
+    }
+    
+    public void addRegate(int porcent){
+        if(regate * (porcent / 100) < 10){
+            regate = regate * (porcent / 100);
+        }
+    }
+    public void addRemate(int porcent){
+        if(remate * (porcent / 100) < 10){
+            remate = remate * (porcent / 100);
+        }
+    }
 }

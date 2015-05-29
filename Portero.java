@@ -52,4 +52,9 @@ public class Portero extends Jugador
     public String toString(){
         return super.toString() + String.format("Agilidad %2d Fortaleza %2d Valoracion %.0f", agilidad, fortalezaMental, valoracion());
     }
+    public void addAgilidad(int porcent){
+        if((porcent / 100) < 10){
+            agilidad = agilidad * (porcent / 100);
+        }
+    }
 }
