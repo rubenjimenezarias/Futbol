@@ -16,4 +16,6 @@ comment4.target=java.lang.String\ toString()
 comment4.text=\r\n\ \r\n
 comment5.params=porcent
 comment5.target=void\ addAgilidad(int)
-numComments=6
+comment6.params=
+comment6.target=void\ hacerCrack()
+numComments=7

@@ -50,4 +50,9 @@ public class Capitan extends JugadorCampo
         }
 
     }
+    
+    public void hacerCrack(){
+        super.hacerCrack();
+        liderazgo = 5;
+    }
 }

@@ -78,4 +78,11 @@ public class JugadorCampo extends Jugador
             remate = remate * (porcent / 100);
         }
     }
+    
+    public void hacerCrack(){
+        super.hacerCrack();
+        pase = 10;
+        regate = 10;
+        remate = 10;
+    }
 }

@@ -12,7 +12,6 @@ public abstract class Jugador
     private int edad;
     private int dorsal;
     private int forma;
-    
     private int valoracion;
     
     
@@ -27,7 +26,6 @@ public abstract class Jugador
         this.nombre = nombre;
         edad = aleatorio.nextInt(22)+18;
         forma = aleatorio.nextInt(11);
-        
         dorsal = 0;
     }
     
@@ -88,9 +86,15 @@ public abstract class Jugador
             forma = forma * (porcent / 100);
         }
     }
+    
     public void addValoracion(int porcent){
         if(valoracion * (porcent / 100) < 10){
             valoracion = valoracion * (porcent / 100);
         }
+    }
+    
+    public void hacerCrack(){
+        forma = 10;
+        valoracion = 10;
     }
 }

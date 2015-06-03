@@ -57,4 +57,9 @@ public class Portero extends Jugador
             agilidad = agilidad * (porcent / 100);
         }
     }
+    public void hacerCrack(){
+        super.hacerCrack();
+        agilidad = 10;
+        fortalezaMental = 10;
+    }
 }

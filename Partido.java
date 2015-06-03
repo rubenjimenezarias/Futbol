@@ -1,4 +1,4 @@
-
+import java.util.Random;
 /**
  * Write a description of class Partido here.
  * 
@@ -30,5 +30,20 @@ public class Partido
         local.verAlineacion();
         System.out.println("**EQUIPO VISITANTE**");
         visitante.verAlineacion();
+    }
+
+    public void posibleResultado(){
+        Random rnd = new Random();
+        int resultado = rnd.nextInt(3);
+        int rGanador = rnd.nextInt(7) + 3;
+        if(local.getEstadoFormaE() > visitante.getEstadoFormaE()){
+            System.out.println("gana el " + local.getNombre() + " " + rGanador + " - " + resultado);
+        }
+        else if(local.getEstadoFormaE() < visitante.getEstadoFormaE()){
+            System.out.println("gana el " + visitante.getNombre() + " " + rGanador + " - " + resultado);
+        }
+        else{
+            System.out.println("gana el " + local.getNombre() + " " + rGanador + " - " + resultado + " gracias a la fuerza de los aficionados");
+        }
     }
 }

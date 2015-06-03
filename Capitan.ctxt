@@ -13,4 +13,6 @@ comment3.target=java.lang.String\ toString()
 comment3.text=\r\n\ \r\n
 comment4.params=porcent
 comment4.target=void\ addLiderazgo(int)
-numComments=5
+comment5.params=
+comment5.target=void\ hacerCrack()
+numComments=6

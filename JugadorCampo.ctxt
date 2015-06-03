@@ -23,4 +23,6 @@ comment7.params=porcent
 comment7.target=void\ addRegate(int)
 comment8.params=porcent
 comment8.target=void\ addRemate(int)
-numComments=9
+comment9.params=
+comment9.target=void\ hacerCrack()
+numComments=10

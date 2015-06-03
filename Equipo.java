@@ -11,6 +11,7 @@ public class Equipo
     // instance variables - replace the example below with your own
     private String nombre;
     private ArrayList<Jugador> plantilla;
+    private int estadoFormaE;
     private static int dorsal;
     private int numJugadores;
     private double valoracionMedia;
@@ -23,6 +24,7 @@ public class Equipo
      */
     public Equipo(String nombre, int numJugadores)
     {
+        estadoFormaE = 0;
         dorsal = 1;
         this.nombre = nombre;
         valoracionMedia = 0;
@@ -56,6 +58,9 @@ public class Equipo
         int capitan = (aleatorio.nextInt(numJugadores+1));
         //Creo la lista que vamos a ir eliminando nombres.
         ArrayList<String> lista = new ArrayList();
+        //si hayCrack vale 1 se creara un crack;
+        int hayCrack = aleatorio.nextInt(2);
+        int posicionCrack = aleatorio.nextInt(numJugadores);
         for(int i = 0; i< nombres.length; i++){
             lista.add(nombres[i]);
         }
@@ -71,6 +76,9 @@ public class Equipo
             }
             else{
                 addJugador(new JugadorCampo(nombres[numeroAleatorio]));
+            }
+            if(hayCrack == 1 && posicionCrack == cont){
+                plantilla.get(cont).hacerCrack();
             }
             lista.remove(numeroAleatorio);
             cont++;
@@ -181,5 +189,18 @@ public class Equipo
                 ((Capitan)plantilla.get(i)).addLiderazgo(porcent);
             }
         }
+    }
+    
+    public int getEstadoFormaE(){
+        int acum = 0;
+        for(int i = 0; i < plantilla.size(); i++){
+            acum += plantilla.get(i).getForma();
+        }
+        estadoFormaE = acum / plantilla.size();
+        return estadoFormaE;
+    }
+    
+    public String getNombre(){
+        return nombre;
     }
 }
